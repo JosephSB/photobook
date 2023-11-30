@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "tsnd --respawn --clear src/index.ts",
     "build": "rimraf ./dist && tsc",
-    "start": "npm run build && node dist/index.js"
+    "start": "npm run build && node dist/index.js",
+    "typeorm": "typeorm-ts-node-esm -d ./src/data/postgres/postgres.database.ts",
+    "migration:generate": "npm run typeorm migration:generate",
+    "migration:run": "npm run typeorm migration:run"
   },
   "keywords": [],
   "author": "JosephSB",
@@ -34,6 +37,9 @@
     "graphql-scalars": "^1.22.4",
     "joi": "^17.11.0",
     "jsonwebtoken": "^9.0.2",
-    "pg": "^8.11.3"
+    "pg": "^8.11.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.17",
+    "typeorm-extension": "^3.2.0"
   }
 }

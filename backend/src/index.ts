@@ -1,5 +1,7 @@
+import "reflect-metadata"
 import createServer from "./app"
 import config from "./config"
+import { PostgressDatabaseConnect } from "./db/postgress"
 import useGraphql from "./graphql/config"
 
 (() => {
@@ -53,6 +55,7 @@ import useGraphql from "./graphql/config"
 })()
 
 async function main() {
+  await PostgressDatabaseConnect();
   const app = await createServer();
   await useGraphql(app);
   app.listen(config.PORT, () => console.log(`Server run on port ${config.PORT}`));
