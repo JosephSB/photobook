@@ -1,35 +1,24 @@
-import express, { Router } from "express";
+import express from "express";
 import cors from "cors";
-//import { ALLOWED_ORIGINS } from "../config";
+import { boomErrorHandler, errorHandler, logErrors } from "./middlewares/errors.middleware";
 
-interface Options {
-  port?: number
-  routes: Router
+const createServer = async () => {
+  const app = express();
+
+  app.use(cors());
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true })); // use for request x-www-formurlencode
+
+  // use http routes
+  app.get('/', (req, res) => {
+    res.send('Welcome to the PhotoBook api!');
+  });
+
+  app.use(logErrors);
+  app.use(boomErrorHandler);
+  app.use(errorHandler);
+  return app
 }
 
-export class Server {
-  public readonly app = express();
-  private readonly port: number;
-  private readonly routes: Router;
 
-  constructor(options: Options) {
-    const { port = 3000, routes } = options;
-
-    this.port = port;
-    this.routes = routes;
-  }
-
-  async start() {
-    // Middlewares
-    this.app.use(cors());
-    this.app.use(express.json());
-    this.app.use(express.urlencoded({ extended: true })); // use for request x-www-formurlencode
-
-    // use routes
-    this.app.use(this.routes);
-
-
-    this.app.listen(this.port, () => console.log(`Server run on port ${this.port}`))
-  }
-
-}
+export default createServer

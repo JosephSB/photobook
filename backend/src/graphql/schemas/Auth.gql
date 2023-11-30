@@ -1,0 +1,15 @@
+type LoginAuthResponse {
+  user: User!
+  access_token: String!
+}
+
+type RegisterAuthResponse {
+  user: User!
+}
+
+input RegisterUserDto {
+  name: String!
+  lastname: String!
+  email: EmailAddress!
+  password: String!
+}
