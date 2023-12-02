@@ -1,6 +1,8 @@
 type LoginAuthResponse {
-  user: User!
-  access_token: String!
+  user: User
+  access_token: String
+  message: String
+  error: Boolean!
 }
 
 type RegisterAuthResponse {
@@ -12,6 +14,12 @@ type RegisterAuthResponse {
 input RegisterUserDto {
   name: String!
   lastname: String!
+  email: EmailAddress!
+  password: String!
+}
+
+
+input LoginUserDto {
   email: EmailAddress!
   password: String!
 }

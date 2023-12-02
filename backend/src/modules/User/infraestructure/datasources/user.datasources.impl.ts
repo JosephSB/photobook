@@ -4,6 +4,7 @@ import { BcryptAdapter } from "../../../../libs";
 import { CustomError } from "../../../Error/custom-errors";
 import { UserDatasource } from "../../domain/datasources/user.datasource";
 import { CreateUserDto } from "../../domain/dtos/create-user.dto";
+import { ValidateUserDto } from "../../domain/dtos/validate-user.dto";
 import { UserEntity } from "../../domain/entities/user.entity";
 import { UserMapper } from "../mappers/user.mapper";
 
@@ -48,6 +49,38 @@ export class UserDatasourceImpl implements UserDatasource {
         lastname: newUser.lastname,
         about: newUser.about,
         photo_id: newUser.photo_id
+      })
+    } catch (error) {
+      if (error instanceof CustomError) throw error
+      throw CustomError.internalServer();
+    }
+  }
+
+  async validateUser(validateUserDto: ValidateUserDto): Promise<UserEntity> {
+    const { email, password } = validateUserDto;
+
+    try {
+      const user = await UserModel.findOne({
+        where: { email: email },
+        relations: ["roles"],
+      });
+      if (!user) throw CustomError.badRequest("Email invalid");
+
+      if (!BcryptAdapter.compare(password, user.password)) {
+        throw CustomError.badRequest("Account invalid");
+      }
+
+      //return mapper
+      return UserMapper.userEntityFromObject({
+        user_id: user.user_id,
+        email: user.email,
+        password: user.password,
+        roles: user.roles,
+        username: user.username,
+        name: user.name,
+        lastname: user.lastname,
+        about: user.about,
+        photo_id: user.photo_id
       })
     } catch (error) {
       if (error instanceof CustomError) throw error

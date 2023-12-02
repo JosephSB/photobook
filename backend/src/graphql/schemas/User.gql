@@ -5,4 +5,11 @@ type User {
   lastname: String!
   about: String
   photo_id: String
+  roles: [Role]!
+  username: String!
+}
+
+type Role {
+  role_id: Int!
+  name: String!
 }

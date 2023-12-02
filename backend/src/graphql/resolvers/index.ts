@@ -5,7 +5,8 @@ const resolvers = {
     hello: () => "hola bola",
   },
   Mutation: {
-    register: AuthResolver.RegisterUser
+    register: AuthResolver.RegisterUser,
+    login: AuthResolver.LoginUser
   }
 }
 

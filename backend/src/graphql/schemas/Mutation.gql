@@ -1,5 +1,5 @@
 type Mutation {
-  login(email: EmailAddress!, password: String!): LoginAuthResponse
+  login(dto: LoginUserDto!): LoginAuthResponse
   register(dto: RegisterUserDto!): RegisterAuthResponse
 
 
