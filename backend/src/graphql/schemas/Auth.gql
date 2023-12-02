@@ -4,7 +4,9 @@ type LoginAuthResponse {
 }
 
 type RegisterAuthResponse {
-  user: User!
+  message: String
+  error: Boolean!
+  user: User
 }
 
 input RegisterUserDto {

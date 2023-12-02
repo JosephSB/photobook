@@ -3,5 +3,6 @@ type User {
   email: String!
   name: String!
   lastname: String!
-  createdAt: String!
+  about: String
+  photo_id: String
 }

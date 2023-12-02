@@ -19,11 +19,11 @@ const useGraphql = async (app: any) => {
     typeDefs: typeDefs,
     resolvers: allResolvers,
     //playground: true,
-    //context: ({req, res}) => buildContext({req, res}),
+    context: ({ req, res }) => ({ req, res }),
     plugins: [ApolloServerPluginLandingPageLocalDefault]
   });
   await server.start();
-  server.applyMiddleware({app});
+  server.applyMiddleware({app, path: "/graphql"});
 }
 
 export default useGraphql
