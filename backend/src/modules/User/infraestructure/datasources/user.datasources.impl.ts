@@ -4,11 +4,38 @@ import { BcryptAdapter } from "../../../../libs";
 import { CustomError } from "../../../Error/custom-errors";
 import { UserDatasource } from "../../domain/datasources/user.datasource";
 import { CreateUserDto } from "../../domain/dtos/create-user.dto";
+import { GetUserByIDDto } from "../../domain/dtos/get-user-by-id.dto";
 import { ValidateUserDto } from "../../domain/dtos/validate-user.dto";
 import { UserEntity } from "../../domain/entities/user.entity";
 import { UserMapper } from "../mappers/user.mapper";
 
 export class UserDatasourceImpl implements UserDatasource {
+
+  async getUserByID(getUserByIDDto: GetUserByIDDto): Promise<UserEntity> {
+    const { user_id } = getUserByIDDto;
+
+    try {
+      // validate if email is unique
+      const user = await UserModel.findOne({ where: { user_id: user_id }, relations: ["roles"] })
+      if (!user) throw CustomError.badRequest("User not exists");
+
+      //return mapper
+      return UserMapper.userEntityFromObject({
+        user_id: user.user_id,
+        email: user.email,
+        password: user.password,
+        roles: user.roles,
+        username: user.username,
+        name: user.name,
+        lastname: user.lastname,
+        about: user.about,
+        photo_id: user.photo_id
+      })
+    } catch (error) {
+      if (error instanceof CustomError) throw error
+      throw CustomError.internalServer();
+    }
+  }
 
   async createUser(createUserDto: CreateUserDto): Promise<UserEntity> {
     const { email, password, name, lastname, about, photo_id } = createUserDto;
