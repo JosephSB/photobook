@@ -15,6 +15,9 @@ export class Post extends BaseEntity {
   @Column({default: 1})
   post_privacy: number; // 1 public - 2 private
 
+  @Column({default: false})
+  isActive: boolean;
+
   @OneToMany(() => PostGallery, (gallery) => gallery.post)
   gallery: PostGallery[]
 
