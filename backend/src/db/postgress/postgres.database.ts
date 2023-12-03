@@ -6,6 +6,8 @@ import { DataSourceOptions } from 'typeorm/data-source';
 import RolesSeeder from './seeders/roles.seed';
 import { Role } from './models/role.model';
 import { User } from './models/user.model';
+import { Post } from './models/post.model';
+import { PostGallery } from './models/post-gallery.model';
 
 const PostgressDataSource = new DataSource({
   type: "postgres",
@@ -17,7 +19,7 @@ const PostgressDataSource = new DataSource({
   synchronize: false,
   logging: true,
   migrationsRun: true,
-  entities: [User, Role],
+  entities: [User, Role, Post, PostGallery],
   subscribers: [],
   migrations: [path.join(__dirname, "./migrations/*.ts")],
   seeds: [RolesSeeder/*path.join(__dirname, "./seeders/*.seed.ts")*/]

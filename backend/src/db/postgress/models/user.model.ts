@@ -12,6 +12,7 @@ import {
   JoinTable,
 } from "typeorm";
 import { Role } from "./role.model";
+import { Post } from "./post.model";
 
 @Entity("users")
 export class User extends BaseEntity {
@@ -42,6 +43,10 @@ export class User extends BaseEntity {
 
   @Column({ length: 40, unique: true})
   username: string;
+
+  @ManyToMany(() => Post)
+  @JoinTable()
+  posts: Post[];
 
   @CreateDateColumn()
   createdAt: Date;
