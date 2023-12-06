@@ -1,0 +1,34 @@
+type Post {
+  post_id: ID!
+  description: String
+  privacy: Int!
+  isActive: Boolean!
+  user: User
+  date: String!
+}
+
+input CreatePostDto {
+  user_id: ID!
+  description: String!
+  privacy: Int!
+  isActive: Boolean
+}
+
+type CreatePostResponse {
+  post: Post
+  message: String
+  error: Boolean!
+}
+
+input EditPostDto {
+  post_id: Int!
+  description: String
+  privacy: Int
+  isActive: Boolean
+}
+
+type EditPostResponse {
+  post: Post
+  message: String
+  error: Boolean!
+}

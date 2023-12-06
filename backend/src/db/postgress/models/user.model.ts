@@ -44,9 +44,12 @@ export class User extends BaseEntity {
   @Column({ length: 40, unique: true})
   username: string;
 
-  @ManyToMany(() => Post)
+  /*@ManyToMany(() => Post)
   @JoinTable()
-  posts: Post[];
+  posts: Post[];*/
+
+  @OneToMany(() => Post, (post) => post.user)
+  posts: Post[]
 
   @CreateDateColumn()
   createdAt: Date;

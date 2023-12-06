@@ -18,6 +18,6 @@ export async function GqlvalidateJWT(req: Request): Promise<TokenPayload> {
     return payload
   } catch (error) {
     console.error(error)
-    throw new Error("Internal Server error")
+    throw new Error("JWT Token: Internal Server error")
   }
 }

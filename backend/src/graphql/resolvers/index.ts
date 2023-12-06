@@ -1,4 +1,5 @@
 import AuthResolver from "./Auth.resolver"
+import PostResolver from "./Post.resolver"
 import UserResolver from "./User.resolver"
 
 const resolvers = {
@@ -8,7 +9,9 @@ const resolvers = {
   },
   Mutation: {
     register: AuthResolver.RegisterUser,
-    login: AuthResolver.LoginUser
+    login: AuthResolver.LoginUser,
+    createPost: PostResolver.createPost,
+    editPost: PostResolver.editPost
   }
 }
 

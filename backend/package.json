@@ -7,7 +7,7 @@
     "dev": "tsnd --respawn --clear src/index.ts",
     "build": "rimraf ./dist && tsc",
     "start": "npm run build && node dist/index.js",
-    "typeorm": "typeorm-ts-node-esm -d ./src/data/postgres/postgres.database.ts",
+    "typeorm": "typeorm-ts-node-esm -d ./src/db/postgress/postgres.database.ts",
     "migration:generate": "npm run typeorm migration:generate",
     "migration:run": "npm run typeorm migration:run"
   },

@@ -2,5 +2,6 @@ type Mutation {
   login(dto: LoginUserDto!): LoginAuthResponse
   register(dto: RegisterUserDto!): RegisterAuthResponse
 
-
+  createPost(dto: CreatePostDto!): CreatePostResponse
+  editPost(dto: EditPostDto!): EditPostResponse
 }
