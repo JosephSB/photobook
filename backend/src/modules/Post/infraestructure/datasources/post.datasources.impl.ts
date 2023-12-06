@@ -38,12 +38,10 @@ export class PostDatasourceImpl implements PostDatasource {
   }
 
   async editPost(editPostDto: EditPostDto): Promise<PostEntity> {
-    const { post_id, description, privacy, isActive } = editPostDto;
+    const { user_id, post_id, description, privacy, isActive } = editPostDto;
 
     try {
-      // validate if post own user
-
-      const post = await PostModel.findOne({ where: { post_id: post_id /*, user: {user_id: } */}, relations: ["user", "user.roles", "gallery"] })
+      const post = await PostModel.findOne({ where: { post_id: post_id , user: {user_id: user_id}}, relations: ["user", "user.roles", "gallery"] })
       if (!post) throw CustomError.badRequest("Post not exists");
 
       if (description) post.description = description
