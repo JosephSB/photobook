@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "qwiklabs-gcp-02-54464aa3f0ee",
+  "private_key_id": "c4a213a0b1504266a136c72617b59212513c494c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCs30eYfwk5iPQE\ndMG1xVuAtkA5Piqjn7WsuLJxZvMxzoawj7Ps2agQdbgg2YY28iu3kl+/rDnVqJ5J\nx8Zjx4AjoEmWW+S5gFXRa4LzjuVxJwDcyDOFdz7oVsATJrenoZULnl622k2BjkLh\n0DKc4UlZ3BprtZq3GrGFh/seqIE4tI+E0VmEmLTINFmjCbXS4zfzyLy7FA8uiTWE\nQi/Mf8DAbA/IgOAZb+Q5yyN6zL738jTziBxUfn1kkDrrA8VHglm/q86F5phyV0s6\n8vy4tccGRQMgEGFomwFY3Mr/n/xkHGT1QHBHcp548COBTKWtg16puIybc2X7J92I\nfO/JQ7FNAgMBAAECggEACtFm1Ghau5gnlmHMv3hsEKLBuR37+BpQpFA4kSJ9TzLF\nOKZS1EcN8928rzLoPxGqN7DNahwNJc2JU5pQqWzSHCiggkFvj5uJg0iZkhlGoBft\n6g24ilPF2C9EPM6Rnp1cy4nWaStBv2eXet8W/mdAulgCP+xGPsrJAiSvdncwAvbQ\nftKydtI+BFwUpWKP8z5GLppXr5A8cHr7b4j5iN5J/nsLIFvqn3O9tVLfnbT2LbGt\nECxlVdckodg9TXahjHwMRWr25O2lZ18FbogSMszVcG2QgH2b4Qq9Xen6TEb0byo1\nn9dNOB2DR5jjeRbdzN7GMjGCrlr5nSwGQMuH3iR1VwKBgQDqwVm7Ivoga8QUly53\nVc+Oc0yu3yi7lx+LF0hvAtHjfnQ2FbizY4+AmO/apShbj+tM5Y+DQlgNq9jJhXhX\nZImOLWe28NflkNXNPd9mlNy/H/4lR6Fd3gri2LQ94e3RO3xqgZzFw7I4Id90lzni\nuOal8pEz0fdmlkzsShVe0QgdWwKBgQC8hEOdPwZyvan6Ud6isn7SwnZbFHz52O3D\nxy4OyFZzr7532UW5ymvuquwPDFl6w1PAdSqYySEHPVFYAn8kU4rlomXHteYdVtoh\n2fw0rWFwBcyhGypby6aIuLtvoHk6Kd1HXKmaTPu03pzjLuHHNMl5NC5V3z0kLp+S\n8mjl71vkdwKBgQDP8Z1OStlNRqhVpOUgB/7mq/NNI5etM1xZlLIww0qwPR8rmWoW\nXSaMPuyXvJxXHtDLOL07A9WDpqlNONE0eHXwXv/z6LsVOopoV1pAP7SaB/jThPPH\ndhwmfNaLykkigZLftRfthj+jwT1yxVIdJrQIYymDwYVoddKFq8nqRzbs6QKBgHfX\nJRyLek/q3mmxLfUDv7e/w3m3FpPGIbA5qL/g/4Rfjpel2bt4QRDiO1p9oUx3a4CH\ne2LRSVvO0S0/uQ+gxEWi7Uz+B6FTGyw15Syfo7eRGDq6iDz+w4la1lzqCOa+wlqh\nP3hFxCWA9v89SG5Y0lNopqQUXEvqD6tcyu6RMTuVAoGBAJ31JVVzWl+JXbVtWn9R\nx9nOYn6bZer3PdxPqpmH3X45hFmWPoLB0A5JhbibZ5oO24esECk159y7L225pKIe\nhn57Uorj/jr2ump0+tKrpESuXZ5bSS2zsm0p0/jWtnh1CH1VBB+9WPF7SYctyJBn\nsW51dUbdwKODk7mH7K2UYOSn\n-----END PRIVATE KEY-----\n",
+  "client_email": "photobook-account@qwiklabs-gcp-02-54464aa3f0ee.iam.gserviceaccount.com",
+  "client_id": "101767882420222629876",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/photobook-account%40qwiklabs-gcp-02-54464aa3f0ee.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

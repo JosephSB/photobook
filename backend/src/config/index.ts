@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import path from 'path';
 
 export default {
   PORT: process.env.PORT ? Number(process.env.PORT) : 5000,
@@ -12,5 +13,12 @@ export default {
     NAME: process.env.POSTGRESS_DB_NAME ? process.env.POSTGRESS_DB_NAME : "",
     USER: process.env.POSTGRESS_DB_USER ? process.env.POSTGRESS_DB_USER : "",
     PASSWORD: process.env.POSTGRESS_DB_PASSWORD ? process.env.POSTGRESS_DB_PASSWORD : ""
+  },
+
+  GCP: {
+    PROJECT_ID: process.env.GCP_PROJECT_ID ? process.env.GCP_PROJECT_ID : "",
+    BUCKET_NAME: process.env.GCP_BUCKET_NAME ? process.env.GCP_BUCKET_NAME : "",
+    ACCOUNT_CREDENTIALS: path.join(__dirname, "./qwiklabs-gcp-02-54464aa3f0ee-c4a213a0b150.json")
   }
+
 }

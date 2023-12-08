@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { boomErrorHandler, errorHandler, logErrors } from "./middlewares/errors.middleware";
+import ApiRouter from "./api/router";
 
 const createServer = async () => {
   const app = express();
@@ -13,6 +14,8 @@ const createServer = async () => {
   app.get('/', (req, res) => {
     res.send('Welcome to the PhotoBook api!');
   });
+
+  app.use("/api", ApiRouter);
 
   app.use(logErrors);
   app.use(boomErrorHandler);
