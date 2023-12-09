@@ -1,4 +1,5 @@
 type Query {
   hello: String
   me: User
+  getPosts(page: Int, size: Int, type: Int): GetPostsResponse
 }

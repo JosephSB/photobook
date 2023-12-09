@@ -5,7 +5,8 @@ import UserResolver from "./User.resolver"
 const resolvers = {
   Query: {
     hello: () => "hola bola",
-    me: UserResolver.Me
+    me: UserResolver.Me,
+    getPosts: PostResolver.getPosts
   },
   Mutation: {
     register: AuthResolver.RegisterUser,

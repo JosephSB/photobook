@@ -6,8 +6,37 @@ import { PostEntity } from "../../domain/entities/post.entity";
 import { Post as PostModel } from "../../../../db/postgress/models/post.model";
 import { User as UserModel } from "../../../../db/postgress/models/user.model";
 import { PostMapper } from "../mappers/post.mapper";
+import { GetPostsDto } from "../../domain/dtos/get-posts.dto";
 
 export class PostDatasourceImpl implements PostDatasource {
+
+  async getPosts(getPostsDto: GetPostsDto): Promise<PostEntity[]> {
+    const { user_id, page, size, type } = getPostsDto;
+
+    try {
+      const posts = await PostModel.find({
+        where: type > 0 ? { gallery: {type_media: type} } : {},
+        relations: ["user", "user.roles", "gallery"],
+        take: size,
+        skip: (size * page) - size
+      })
+
+      return posts.map( post => PostMapper.postEntityFromObject({
+        post_id: post.post_id,
+        description: post.description,
+        privacy: post.post_privacy,
+        isActive: post.isActive,
+        user: post.user,
+        gallery: post.gallery || [],
+        date: post.updatedAt ? post.updatedAt : post.createdAt
+      }))
+
+    } catch (error) {
+      if (error instanceof CustomError) throw error
+      throw CustomError.internalServer();
+    }
+  }
+
   async savePost(savePostDto: SavePostDto): Promise<PostEntity> {
     const { user_id, description, privacy, isActive } = savePostDto;
 

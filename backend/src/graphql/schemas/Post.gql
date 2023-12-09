@@ -5,6 +5,20 @@ type Post {
   isActive: Boolean!
   user: User
   date: String!
+  gallery: [Media]!
+}
+
+type Media {
+  post_gallery_id: Int!
+  media_id: String!
+  type_media: Int!
+  order: Int!
+}
+
+type GetPostsResponse {
+  posts: [Post]!
+  message: String
+  error: Boolean!
 }
 
 input CreatePostDto {
